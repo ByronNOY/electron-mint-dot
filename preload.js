@@ -33,7 +33,7 @@ contextBridge.exposeInMainWorld('polkadotApi', {
     const transfer = api.tx.balances.transferKeepAlive(targetAddress, 0);
     const remark = api.tx.system.remark(`{"p":"dot-20","op":"mint","tick":"${ticket}"}`);
 
-    const hash = await api.tx.utility.batch([transfer, remark]).signAndSend(account);
+    const hash = await api.tx.utility.batchAll([transfer, remark]).signAndSend(account);
     return { hash: hash.toHex(), blockHeight }
   }
 })
