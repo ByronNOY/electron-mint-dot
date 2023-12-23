@@ -8,15 +8,6 @@ const { u8aToHex } = require('@polkadot/util');
 
 contextBridge.exposeInMainWorld('polkadotApi', {
 
-  getApiPromise: (nodeUrl) => {
-
-    return api;
-  },
-  getAccount: (mnemonic) => {
-
-    return account;
-  },
-
   sendTransfer: async (nodeUrl, mnemonic, targetAddress, ticket) => {
 
     const wsProvider = new WsProvider(nodeUrl);
